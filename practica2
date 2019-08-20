@@ -1,0 +1,14 @@
+##19Agosto
+x<-c(132,129,120,113.2,105,92,84,83.2,88.4,59,80,81.5,71,69.2)
+y<-c(46,48,51,52.1,54,52,59,58.7,61.6,64,61.4,54.6,58.8,58)
+var(x,x)
+plot(x,y,xlim=c(0,150),ylim=c(0,70))
+lm(y~x)
+
+sxx= sum((x-mean(x))^2)
+sxy= sum((x-mean(x))*(y-mean(y)))
+
+B1= (sxy)/(sxx)
+B0 <- mean(y)- B1*mean(x)
+##RECTA AJUSTADA
+## y(gorrito)=75.2-0.2093x
