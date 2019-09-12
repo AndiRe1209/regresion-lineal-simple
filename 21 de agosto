@@ -1,0 +1,34 @@
+x<-c(132,129,120,113.2,105,92,84,83.2,88.4,59,80,81.5,71,69.2)
+y<-c(46,48,51,52.1,54,52,59,58.7,61.6,64,61.4,54.6,58.8,58)
+
+##Sxx
+sxx=sum((x-mean(x))^2)
+sxx
+##Sxy
+sxy=sum((x-mean(x))*(y-mean(y)))
+sxy
+##B1
+b1=(sxy/sxx)
+b1
+##B0
+b0<-mean(y)-b1*mean(x)
+b0
+z<-75.21-.2093 (70)
+q<-75.21-.2093 (%)
+r <-75.21-.2093 (€)
+
+##plot(x,y,xlim=c(0,135),ylim=c(0,65))
+qplot(x,y,geom = c("point"), method="lm") +geom_line(aes(y=rr),lwd=1.2,color=4)+geom_point(aes(70,z),color="pink")+geom_point(aes(%,q),color="red")+geom_point(aes(€,r),color="green")
+
+##COMPARACION CON LM
+
+mod1<-lm(y~x)
+rr<-predict(mod1)
+
+d <- data.frame(x=c(70,40,55))
+qplot(d)
+
+names(rr)
+
+install.packages("ggplot2")
+require(ggplot2)
