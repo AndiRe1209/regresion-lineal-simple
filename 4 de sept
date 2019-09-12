@@ -1,0 +1,37 @@
+x<- c(50,50,80,80,110,110,140,140,170,170)
+y<- c(17052,14063,26264,19600,21952,26362,26362,26752,31654,32928)
+install.packages("ggplot2")
+require(ggplot2)
+
+sxx= sum((x-mean(x))^2)
+sxy= sum((x-mean(x))*(y-mean(y)))
+
+b1= (sxy)/(sxx)
+b0 <- mean(y)- b1*mean(x)
+
+plot(x,y)
+qplot(x,y,geom = c("point"), method="lm") +geom_line(aes(y=rr),lwd=1,color=4)
+summary(mod1)
+
+#Ecuacion 10698.5+123.64x
+mod1<- lm(y~x)
+rr<-predict(mod1)
+
+#SSE
+SSE<- sum((y-rr)^2)
+V <- (SSE/8)
+DE <- V^(1/2)
+
+#SST
+media<-mean(rr)
+media
+SST<- sum((y-media)^2)
+
+r<-1-(SSE/SST)
+
+
+
+
+
+
+
